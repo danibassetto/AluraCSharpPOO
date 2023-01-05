@@ -1,8 +1,6 @@
-﻿/* Aula 01 - Criação de Classes
-
+﻿/* 
 No geral, a classe serve para separar e criar algo que existe no mundo real, com suas particularidades. (Ex: Celular,
 Carro, Conta corrente...)
-
 */
 
 using bytebank;
@@ -43,3 +41,22 @@ Console.WriteLine("Saldo da conta da Maria = " + contaDaMaria.saldo);
 
 contaDoAndre.Transferencia(50, contaDaMaria);
 Console.WriteLine("Saldo da conta da Maria = " + contaDaMaria.saldo);
+
+//valor padrão, definido ao instanciar um novo objeto sem atribuir valor a seus elementos
+ContaCorrente contaDoPedro = new ContaCorrente();
+Console.WriteLine(contaDoPedro.titular);
+Console.WriteLine(contaDoPedro.saldo);
+Console.WriteLine(contaDoPedro.numero_agencia);
+Console.WriteLine(contaDoPedro.conta);
+
+/*
+Valores primitivos (default)
+int - 0
+double - 0
+string - null
+bool - false
+
+nota de aula:
+ao comparar dois objetos que possuem o mesmo valor mas referenciam diferentes lugares
+na memória, o resultado será false
+*/
