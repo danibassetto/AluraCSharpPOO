@@ -189,11 +189,44 @@ criar diretamente uma propriedade autoimplementada.
 
 Note o campo Conta na classe "ContaCorrente"
 */
-ContaCorrente conta4 = new ContaCorrente();
-conta4.Numero_angencia = 18;
-conta4.SetSaldo(200);
-conta4.Conta = "1011-X";
-Console.WriteLine(conta4.GetSaldo());
-Console.WriteLine(conta4.Numero_angencia);
-Console.WriteLine(conta4.Conta);
+//ContaCorrente conta4 = new ContaCorrente();
+//conta4.Numero_angencia = 18;
+//conta4.SetSaldo(200);
+//conta4.Conta = "1011-X";
+//Console.WriteLine(conta4.GetSaldo());
+//Console.WriteLine(conta4.Numero_angencia);
+//Console.WriteLine(conta4.Conta);
+#endregion
+
+#region Aula 10 - Construtores
+//ContaCorrente conta5 = new ContaCorrente(18, "1010-X");
+//conta5.SetSaldo(500);
+////conta5.Numero_angencia = 18; --> tornamos o set privado
+//conta5.Titular = new Cliente();
+
+//Console.WriteLine(conta5.GetSaldo());
+//Console.WriteLine(conta5.Numero_angencia);
+
+///*
+//O método construtor ajuda a preencher o objeto na memória e obriga a inserção dos campos contidos em seu parâmetro
+
+//Note na classe Cliente e ContaCorrente os construtores feitos. 
+//*/
+#endregion
+
+#region Aula  - Membro estático 
+ContaCorrente conta6 = new ContaCorrente(283, "1234-X");
+Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+
+ContaCorrente conta7 = new ContaCorrente(284, "9874-Z");
+Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+
+ContaCorrente conta8 = new ContaCorrente(285, "1111-Z");
+Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+/* 
+Membros estáticos são chamados pela classe e não por objetos, note o campo incrementado TotalDeContasCriadas++
+
+Para acessá-lo no objeto devemos tirar o this. e é interessante que seja set privado para que não tenha alteração,
+visto que é incremento.
+*/
 #endregion
