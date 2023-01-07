@@ -6,7 +6,7 @@ namespace bytebank.Contas
     {
         public static int TotalDeContasCriadas { get; private set; }
         private int numero_agencia;
-        public int Numero_angencia
+        public int Numero_agencia
         {
             get
             {
@@ -19,13 +19,32 @@ namespace bytebank.Contas
             }
         } // propriedade implementada com condição
         public string Conta { get; set; } // propriedade autoimplementada
-
+        private string nome_agencia;
+        public string Nome_agencia
+        {
+            get
+            {
+                return this.nome_agencia;
+            }
+            private set
+            {
+                this.nome_agencia = value;
+            }
+        }
         private double saldo; // utiliza método público
         public Cliente Titular { get; set; } // propriedade autoimplementada
 
+        public ContaCorrente(Cliente titular, string nome_agencia, int numero_agencia, string conta)
+        {
+            Titular = titular;
+            Nome_agencia = nome_agencia;
+            Numero_agencia = numero_agencia;
+            Conta = conta;
+        } 
+
         public ContaCorrente(int numero_agencia, string numero_conta)
         {
-            this.Numero_angencia = numero_agencia;
+            this.Numero_agencia = numero_agencia;
             this.Conta = numero_conta;
             TotalDeContasCriadas++;
         }

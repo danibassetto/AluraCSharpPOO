@@ -1,6 +1,12 @@
 ﻿using bytebank.Contas;
 using bytebank.Titular;
 
+/*  
+    Programa desenvolvido durante aulas do Alura, portanto conta com explicações e está dividido em regions, de acordo com os temas propostos.
+    Note que as aulas antigas estão comentadas, devido as alterações feitas em aulas posteriores.
+*/  
+ 
+
 #region Aula 01 - Criação de Classes
 //Console.WriteLine("============ AULA 01 ============");
 
@@ -190,22 +196,22 @@ criar diretamente uma propriedade autoimplementada.
 Note o campo Conta na classe "ContaCorrente"
 */
 //ContaCorrente conta4 = new ContaCorrente();
-//conta4.Numero_angencia = 18;
+//conta4.Numero_agencia = 18;
 //conta4.SetSaldo(200);
 //conta4.Conta = "1011-X";
 //Console.WriteLine(conta4.GetSaldo());
-//Console.WriteLine(conta4.Numero_angencia);
+//Console.WriteLine(conta4.Numero_agencia);
 //Console.WriteLine(conta4.Conta);
 #endregion
 
 #region Aula 10 - Construtores
 //ContaCorrente conta5 = new ContaCorrente(18, "1010-X");
 //conta5.SetSaldo(500);
-////conta5.Numero_angencia = 18; --> tornamos o set privado
+////conta5.Numero_agencia = 18; --> tornamos o set privado
 //conta5.Titular = new Cliente();
 
 //Console.WriteLine(conta5.GetSaldo());
-//Console.WriteLine(conta5.Numero_angencia);
+//Console.WriteLine(conta5.Numero_agencia);
 
 ///*
 //O método construtor ajuda a preencher o objeto na memória e obriga a inserção dos campos contidos em seu parâmetro
@@ -214,7 +220,7 @@ Note o campo Conta na classe "ContaCorrente"
 //*/
 #endregion
 
-#region Aula  - Membro estático 
+#region Aula 11 - Membro estático 
 ContaCorrente conta6 = new ContaCorrente(283, "1234-X");
 Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
 
@@ -227,6 +233,35 @@ Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
 Membros estáticos são chamados pela classe e não por objetos, note o campo incrementado TotalDeContasCriadas++
 
 Para acessá-lo no objeto devemos tirar o this. e é interessante que seja set privado para que não tenha alteração,
-visto que é incremento.
+visto que é incremento. A pessoa desenvolvedora deveria criar a propriedade como estática, para ser uma característica da classe e 
+não algo compartilhado com todos os objetos da classe, se não retornará apenas o valor 1, sem incrementá-lo.
+
+ContaCorrente.TotalDeContasCriadas é uma propriedade estática que carrega no momento que executa a aplicação.
+
+Então, o membro estático é uma propriedade relacionada à classe e não ao objeto. Os objetos conseguem acessar essa propriedade 
+porque faz parte do contexto da classe, por isso o construtor conseguiu fazer o incremento dela.
+
+Membros estáticos, no momento da execução do programa, são carregados diretamente para a memória, por isso devem ser usados com 
+bastante cautela para não ocuparmos a memória do computador com informações desnecessárias para a resolução do problema.
 */
+
+Cliente sarah = new Cliente();
+sarah.Nome = "Sarah Silva";
+sarah.Profissao = "Professora";
+sarah.Cpf = "11111111-12";
+
+Cliente ester = new Cliente();
+ester.Nome = "Ester Almeida";
+ester.Profissao = "Advogada";
+ester.Cpf = "868524125-32";
+
+Console.WriteLine("Total de clientes: " + Cliente.TotalClientesCadastrados);
+
+ContaCorrente contaAndre = new ContaCorrente(159, "152869-x");
+contaAndre.Titular = new Cliente();
+contaAndre.Titular.Nome = " André Pereira";
+contaAndre.Titular.Profissao = "Auxiliar Administrativo";
+contaAndre.SetSaldo(100);
+
+Console.WriteLine("Total de clientes: " + Cliente.TotalClientesCadastrados);
 #endregion
