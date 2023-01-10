@@ -11,9 +11,10 @@ namespace bytebank_ADM.Utilitario
             this.TotalDeBonificacao += funcionario.GetBonificacao();
         }
 
-        public void Registrar(Diretor diretor)
-        {
-            this.TotalDeBonificacao += diretor.GetBonificacao();
-        }
+        // Podemos remover essa sobrecarga após a herança, visto que um diretor também se tornou funcionario
+        //public void Registrar(Diretor diretor)
+        //{
+        //    this.TotalDeBonificacao += diretor.GetBonificacao();
+        //}
     }
 }

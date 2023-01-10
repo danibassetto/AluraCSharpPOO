@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace bytebank_ADM.Funcionarios
+﻿namespace bytebank_ADM.Funcionarios
 {
-    public class Diretor
+    public class Diretor : Funcionario
     {
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public double Salario { get; set; }
+        //public string Nome { get; set; }
+        //public string Cpf { get; set; }
+        //public double Salario { get; set; } --> após herdarmos a classe Funcionario, não precisamos mais desses atributos, pois ela já os contém.
 
-        public double GetBonificacao()
+        //Ainda após a herança, mantemos o GetBonificação, pois não é igual ao implementado em Funcionario
+        public override double GetBonificacao() // o override significa que o método foi sobrescrito
         {
-            return this.Salario; // bonificação corresponde a 100% do salário
+            return this.Salario + base.GetBonificacao(); // palavra base permite acessar implementações existentes na superclasse ou classe base
         }
     }
 }
