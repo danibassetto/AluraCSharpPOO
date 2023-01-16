@@ -1,10 +1,18 @@
-﻿namespace bytebank_ADM.Funcionarios
+﻿using bytebank_ADM.SistemaInterno;
+
+namespace bytebank_ADM.Funcionarios
 {
-    public class Diretor : Funcionario
+    public class Diretor : Autenticavel
     {
         //public string Nome { get; set; }
         //public string Cpf { get; set; }
         //public double Salario { get; set; } --> após herdarmos a classe Funcionario, não precisamos mais desses atributos, pois ela já os contém.
+        //public string Senha { get; set; }
+
+        //public bool Autenticar(string senha)
+        //{
+        //    return this.Senha == senha;
+        //}
 
         public Diretor(string cpf):base(cpf, 5000)
         {
@@ -21,6 +29,11 @@
         public override void AumentarSalario()
         {
             this.Salario *= 1.15;
+        }
+
+        public override bool Autenticar(string senha)
+        {
+            return this.Senha == senha;
         }
     }
 }

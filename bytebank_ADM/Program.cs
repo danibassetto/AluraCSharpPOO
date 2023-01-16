@@ -1,7 +1,8 @@
 ﻿using bytebank_ADM.Funcionarios;
+using bytebank_ADM.SistemaInterno;
 using bytebank_ADM.Utilitario;
 
-#region Aula 1 - Sobrecarga e Polimorfismo
+#region Aula 01 - Sobrecarga e Polimorfismo
 /* 
 Nessa aula temos um exemplo de sobrecarga e polimorfismo com o método Registrar, que pode receber parâmetros diferentes
 
@@ -32,7 +33,7 @@ de programação.
 //Console.WriteLine("Total de bonificações: " + gerenciador.TotalDeBonificacao);
 #endregion
 
-#region Aula 2 - Herança
+#region Aula 02 - Herança
 /*
 Para evitar repetição de código e até melhorar o desempenho, é possível utilizar a herança, que é um mecanismo na qual uma classe
 herda uma superclasse ou classe base.
@@ -51,7 +52,7 @@ Usamos a palavra base para acessar implementações existentes na superclasse ou
 */
 #endregion
 
-#region Aula 3 - Construtor da classe base
+#region Aula 03 - Construtor da classe base
 /* 
 Console.WriteLine("Total de Funcionários: " + Funcionario.TotalDeFuncionarios);
 
@@ -104,7 +105,7 @@ A máquina virtual do .NET, a CLR (Common Language Runtime), fica encarregada de
 */
 #endregion
 
-#region Aula 4 - Construtor base com parâmetros
+#region Aula 04 - Construtor base com parâmetros
 /*
 É importante destacar que um construtor de uma classe derivada deve ter os parâmetros do construtor da classe base.
 Sendo que na frente da definição do construtor derivado deve ter :(base ...parametros). Veja em Diretor.
@@ -129,14 +130,14 @@ Sendo que na frente da definição do construtor derivado deve ter :(base ...par
 //Console.WriteLine("Total de bonificações: " + gerenciador.TotalDeBonificacao);
 #endregion
 
-#region Aula 5 - O Modificador
+#region Aula 05 - O Modificador
 //pedro.AumentarSalario();
 //roberta.AumentarSalario();
 //Console.WriteLine("Novo Salário Pedro: " + pedro.Salario);
 //Console.WriteLine("Novo Salário Roberta: " + roberta.Salario);
 #endregion
 
-#region Aula 6 - Classes abstratas
+#region Aula 06 - Classes abstratas
 CalcularBonificacao();
 
 /*
@@ -166,7 +167,7 @@ um objeto do tipo Funcionario diretamente.
 */
 #endregion
 
-#region Aula 7 - Métodos Abstratos
+#region Aula 07 - Métodos Abstratos
 /*
 Na classe Funcionario, temos os métodos GetBonificacao() e AumentarSalario(). Como Funcionario passou a ser uma abstração, esses métodos não
 têm mais implementação nessa classe. Apesar disso, eles precisam obrigatoriamente estar presentes nas classes herdeiras e ter suas implementações
@@ -186,6 +187,10 @@ Quanto ao construtor, ele também será abstrato? É importante ressaltar que, a
 Após salvar as alterações, voltaremos ao arquivo Program.cs. Vamos reparar que não surgiu nenhum erro nele, pois todas as classes herdeiras estão
 implementando corretamente o GetBonificacao() e o AumentarSalario().
 */
+#endregion
+
+#region Aula 08 - Sistema interno
+UsarSistema();
 #endregion
 
 void CalcularBonificacao()
@@ -210,4 +215,20 @@ void CalcularBonificacao()
     gerenciador.Registrar(joao);
 
     Console.WriteLine("Total de bonificação = " + gerenciador.TotalDeBonificacao);
+}
+
+void UsarSistema()
+{
+    SistemaInterno sistema = new SistemaInterno();
+
+    Diretor ingrid = new Diretor("8574215235");
+    ingrid.Nome = "Ingrid";
+    ingrid.Senha = "123";
+
+    GerenteDeContas ursola = new GerenteDeContas("1234567893");
+    ursola.Nome = "Ursola";
+    ursola.Senha = "321";
+
+    sistema.Logar(ingrid, "123");
+    sistema.Logar(ursola, "987");
 }
