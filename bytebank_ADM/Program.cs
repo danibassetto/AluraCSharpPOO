@@ -1,4 +1,5 @@
 ﻿using bytebank_ADM.Funcionarios;
+using bytebank_ADM.Parceria;
 using bytebank_ADM.SistemaInterno;
 using bytebank_ADM.Utilitario;
 
@@ -193,6 +194,32 @@ implementando corretamente o GetBonificacao() e o AumentarSalario().
 UsarSistema();
 #endregion
 
+#region Aula 09 - Herança Multipla
+/*
+No C#, não é possível trabalhar com o conceito de herança múltipla, isto é, herdar de duas superclasses simultaneamente. Só podemos herdar de uma única
+classe. 
+*/
+#endregion
+
+#region Interfaces
+/*
+- A interface é uma espécie de contrato, e quem o assume tem obrigação de implementar seu comportamento.
+Note a interface IAutenticavel.
+
+- Geralmente nomeamos com um I no inicio do nome.
+
+- A utilização de interfaces permite a implementação de comportamentos distintos para nossas classes de forma mais flexível. Com uma interface definimos
+um contrato, uma regra que qualquer classe que a implemente seguirá no momento de estabelecer nossos métodos.
+
+- A interface é similar a uma classe abstrata, mas só conterá a assinatura dos métodos a serem implementados.
+
+- Uma mesma classe pode implementar mais de uma interface.
+
+- Na definição de herança e implementação de interfaces na mesma declaração, a herança de classe deve ser explicitada primeiro, depois as 
+implementações de interfaces.
+*/
+#endregion
+
 void CalcularBonificacao()
 {
     GerenciadorDeBonificacao gerenciador = new GerenciadorDeBonificacao();
@@ -229,6 +256,10 @@ void UsarSistema()
     ursola.Nome = "Ursola";
     ursola.Senha = "321";
 
+    ParceiroComercial caio = new ParceiroComercial();
+    caio.Senha = "999";
+
     sistema.Logar(ingrid, "123");
     sistema.Logar(ursola, "987");
+    sistema.Logar(caio, "999");
 }

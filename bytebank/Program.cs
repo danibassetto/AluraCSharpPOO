@@ -5,7 +5,6 @@ using bytebank.Titular;
     Programa desenvolvido durante aulas do Alura, portanto conta com explicações e está dividido em regions, de acordo com os temas propostos.
     Note que as aulas antigas estão comentadas, devido as alterações feitas em aulas posteriores.
 */  
- 
 
 #region Aula 01 - Criação de Classes
 //Console.WriteLine("============ AULA 01 ============");
