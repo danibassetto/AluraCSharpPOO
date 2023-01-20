@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bytebank", "bytebank\byteba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bytebank_ADM", "bytebank_ADM\bytebank_ADM.csproj", "{9F4DF9D2-4395-41DF-BA30-8AEC9FA6AA02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AulaClassObject", "AulaClassObject\AulaClassObject.csproj", "{FDAECAA6-32AF-4697-954F-435FAE146714}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AulaClassObject", "AulaClassObject\AulaClassObject.csproj", "{FDAECAA6-32AF-4697-954F-435FAE146714}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AulaStrings", "AulaStrings\AulaStrings.csproj", "{04209049-723B-434F-96D3-95ED8B0E9027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AulaStrings", "AulaStrings\AulaStrings.csproj", "{04209049-723B-434F-96D3-95ED8B0E9027}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AulaStructsEClasses", "AulaStructsEClasses\AulaStructsEClasses.csproj", "{8B6EC5F0-171C-4FA9-A610-64F94B21D791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AulaRegex", "AulaRegex\AulaRegex.csproj", "{5970DBF8-EE12-4E8A-97BE-686986FEFB06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{04209049-723B-434F-96D3-95ED8B0E9027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04209049-723B-434F-96D3-95ED8B0E9027}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04209049-723B-434F-96D3-95ED8B0E9027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6EC5F0-171C-4FA9-A610-64F94B21D791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6EC5F0-171C-4FA9-A610-64F94B21D791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6EC5F0-171C-4FA9-A610-64F94B21D791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6EC5F0-171C-4FA9-A610-64F94B21D791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5970DBF8-EE12-4E8A-97BE-686986FEFB06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5970DBF8-EE12-4E8A-97BE-686986FEFB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5970DBF8-EE12-4E8A-97BE-686986FEFB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5970DBF8-EE12-4E8A-97BE-686986FEFB06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
