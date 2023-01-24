@@ -1,14 +1,10 @@
 ﻿namespace bytebank.Exceções
 {
-    public class SaldoInsuficienteException : Exception
+    public class SaldoInsuficienteException : OperacaoFinanceiraException
     {
-        public SaldoInsuficienteException()
+        public SaldoInsuficienteException(string mensagem) : base(mensagem)
         {
-        }
 
-        public SaldoInsuficienteException(string mensagem)
-            : base(mensagem)
-        {
         }
     }
 }
