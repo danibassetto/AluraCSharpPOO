@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using bytebank.Modelos.Conta;
 
 Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
@@ -13,55 +12,55 @@ Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
 //int media = (idade0 + idade1 + idade2 + idade3 + idade4) / 5;
 
-TestaArrayInt();
+//TestaArrayInt();
 
-TestaBuscarPalavra();
+//TestaBuscarPalavra();
 
-void TestaArrayInt()
-{
-    int[] idades = new int[5];
-    idades[0] = 30;
-    idades[1] = 40;
-    idades[2] = 17;
-    idades[3] = 21;
-    idades[4] = 18;
+//void TestaArrayInt()
+//{
+//    int[] idades = new int[5];
+//    idades[0] = 30;
+//    idades[1] = 40;
+//    idades[2] = 17;
+//    idades[3] = 21;
+//    idades[4] = 18;
 
-    Console.WriteLine($"Tamanho do array = {idades.Length}");
+//    Console.WriteLine($"Tamanho do array = {idades.Length}");
 
-    int acumulador = 0;
-    for (int i = 0; i < idades.Length; i++)
-    {
-        int idade = idades[i];
-        Console.WriteLine($"Indice [{i}] = {idade} anos");
-        acumulador += idade;
-    }
+//    int acumulador = 0;
+//    for (int i = 0; i < idades.Length; i++)
+//    {
+//        int idade = idades[i];
+//        Console.WriteLine($"Indice [{i}] = {idade} anos");
+//        acumulador += idade;
+//    }
 
-    int media = acumulador / idades.Length;
-    Console.WriteLine($"Média das idades = {media}");
-}
+//    int media = acumulador / idades.Length;
+//    Console.WriteLine($"Média das idades = {media}");
+//}
 
-void TestaBuscarPalavra()
-{
-    string[] arrayDePalavras = new string[5];
+//void TestaBuscarPalavra()
+//{
+//    string[] arrayDePalavras = new string[5];
 
-    for (int i = 0; i < arrayDePalavras.Length; i++)
-    {
-        Console.Write($"Digite {i + 1}ª Palavra: ");
-        arrayDePalavras[i] = Console.ReadLine();
-    }
+//    for (int i = 0; i < arrayDePalavras.Length; i++)
+//    {
+//        Console.Write($"Digite {i + 1}ª Palavra: ");
+//        arrayDePalavras[i] = Console.ReadLine();
+//    }
 
-    Console.Write("Digite palavra a ser encontrada: ");
-    var busca = Console.ReadLine();
+//    Console.Write("Digite palavra a ser encontrada: ");
+//    var busca = Console.ReadLine();
 
-    foreach (string palavra in arrayDePalavras)
-    {
-        if (palavra.Equals(busca))
-        {
-            Console.WriteLine($"Palavra encontrada = {busca}");
-            break;
-        }
-    }
-}
+//    foreach (string palavra in arrayDePalavras)
+//    {
+//        if (palavra.Equals(busca))
+//        {
+//            Console.WriteLine($"Palavra encontrada = {busca}");
+//            break;
+//        }
+//    }
+//}
 
 /*
 
@@ -97,59 +96,59 @@ mais adiante neste curso). Em outras palavras, o foreach é outra estrutura de r
 #endregion
 
 #region Aula 02 - Classe Array
-Array amostra = Array.CreateInstance(typeof(double), 5);
-amostra.SetValue(5.9, 0);
-amostra.SetValue(1.8, 1);
-amostra.SetValue(7.1, 2);
-amostra.SetValue(10, 3);
-amostra.SetValue(6.9, 4);
+//Array amostra = Array.CreateInstance(typeof(double), 5);
+//amostra.SetValue(5.9, 0);
+//amostra.SetValue(1.8, 1);
+//amostra.SetValue(7.1, 2);
+//amostra.SetValue(10, 3);
+//amostra.SetValue(6.9, 4);
 
-//[5,9][1,8][7,1][10][6,9]
-double[] valores = { 10, 58, 36, 47 };
+////[5,9][1,8][7,1][10][6,9]
+//double[] valores = { 10, 58, 36, 47 };
 
-TestaMediana(amostra);
-Console.WriteLine($"Média = {MediaDaAmostra(valores)}");
+//TestaMediana(amostra);
+//Console.WriteLine($"Média = {MediaDaAmostra(valores)}");
 
-void TestaMediana(Array array)
-{
-    if ((array == null) || (array.Length == 0))
-    {
-        Console.WriteLine("Array para cálculo da mediana está vazio ou nulo");
+//void TestaMediana(Array array)
+//{
+//    if ((array == null) || (array.Length == 0))
+//    {
+//        Console.WriteLine("Array para cálculo da mediana está vazio ou nulo");
 
-    }
+//    }
 
-    double[] numerosOrdenados = (double[])array.Clone();
-    Array.Sort(numerosOrdenados);
-    //[1,8][5,9][6,9][7,1][10]
+//    double[] numerosOrdenados = (double[])array.Clone();
+//    Array.Sort(numerosOrdenados);
+//    //[1,8][5,9][6,9][7,1][10]
 
-    int tamanho = numerosOrdenados.Length;
-    int meio = tamanho / 2;
-    double mediana = (tamanho % 2 != 0) ? numerosOrdenados[meio] :
-                                          (numerosOrdenados[meio] + numerosOrdenados[meio - 1] / 2);
-    Console.WriteLine($"Com base na amostra a mediana = {mediana}");
-}
+//    int tamanho = numerosOrdenados.Length;
+//    int meio = tamanho / 2;
+//    double mediana = (tamanho % 2 != 0) ? numerosOrdenados[meio] :
+//                                          (numerosOrdenados[meio] + numerosOrdenados[meio - 1] / 2);
+//    Console.WriteLine($"Com base na amostra a mediana = {mediana}");
+//}
 
-double MediaDaAmostra(double[] amostra)
-{
-    double media = 0;
-    double acumulador = 0;
+//double MediaDaAmostra(double[] amostra)
+//{
+//    double media = 0;
+//    double acumulador = 0;
 
-    if ((amostra == null) || (amostra.Length == 0))
-    {
-        Console.WriteLine("Amostra de dados nula ou vazia.");
-        return 0;
-    }
-    else
-    {
-        for (int i = 0; i < amostra.Length; i++)
-        {
-            acumulador = acumulador + amostra[i];
-        }
-        media = acumulador / amostra.Length;
-    }
+//    if ((amostra == null) || (amostra.Length == 0))
+//    {
+//        Console.WriteLine("Amostra de dados nula ou vazia.");
+//        return 0;
+//    }
+//    else
+//    {
+//        for (int i = 0; i < amostra.Length; i++)
+//        {
+//            acumulador = acumulador + amostra[i];
+//        }
+//        media = acumulador / amostra.Length;
+//    }
 
-    return media;
-}
+//    return media;
+//}
 
 
 /*
@@ -163,10 +162,10 @@ no nosso código e ele continuará funcionando normalmente.
 
 */
 
-for(int i = 0; i < 4; i++)
-{
-    Console.WriteLine(valores[i]);
-}
+//for(int i = 0; i < 4; i++)
+//{
+//    Console.WriteLine(valores[i]);
+//}
 
 /*
  
@@ -217,4 +216,26 @@ Clear	    limpa todas as posições de um array.
 Exists	    verifica se existe ou não um elemento no array. 
  
 */
+#endregion
+
+#region Aula  - Array de contas
+// código anterior omitido
+
+TestaArrayDeContasCorrentes();
+
+void TestaArrayDeContasCorrentes()
+{
+    ContaCorrente[] listaDeContas = new ContaCorrente[]
+    {
+        new ContaCorrente(874, "5679787-A"),
+        new ContaCorrente(874, "4456668-B"),
+        new ContaCorrente(874, "7781438-C")
+    };
+
+    for(int i = 0; i < listaDeContas.Length; i++)
+    {
+        ContaCorrente contaAtual = listaDeContas[i];
+        Console.WriteLine($"Índice {i} - Conta: {contaAtual.Conta}");
+    }
+}
 #endregion
