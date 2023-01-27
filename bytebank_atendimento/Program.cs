@@ -1,4 +1,5 @@
 ﻿using bytebank.Modelos.Conta;
+using bytebank_atendimento.bytebank_util;
 
 Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
@@ -218,24 +219,48 @@ Exists	    verifica se existe ou não um elemento no array.
 */
 #endregion
 
-#region Aula  - Array de contas
+#region Aula 03 - Array de contas
 // código anterior omitido
+
+//TestaArrayDeContasCorrentes();
+
+//void TestaArrayDeContasCorrentes()
+//{
+//    ContaCorrente[] listaDeContas = new ContaCorrente[]
+//    {
+//        new ContaCorrente(874, "5679787-A"),
+//        new ContaCorrente(874, "4456668-B"),
+//        new ContaCorrente(874, "7781438-C")
+//    };
+
+//    for(int i = 0; i < listaDeContas.Length; i++)
+//    {
+//        ContaCorrente contaAtual = listaDeContas[i];
+//        Console.WriteLine($"Índice {i} - Conta: {contaAtual.Conta}");
+//    }
+//}
+#endregion
+
+#region Aula 04 - Lista de Contas Correntes
 
 TestaArrayDeContasCorrentes();
 
 void TestaArrayDeContasCorrentes()
 {
-    ContaCorrente[] listaDeContas = new ContaCorrente[]
-    {
-        new ContaCorrente(874, "5679787-A"),
-        new ContaCorrente(874, "4456668-B"),
-        new ContaCorrente(874, "7781438-C")
-    };
 
-    for(int i = 0; i < listaDeContas.Length; i++)
-    {
-        ContaCorrente contaAtual = listaDeContas[i];
-        Console.WriteLine($"Índice {i} - Conta: {contaAtual.Conta}");
-    }
+    ListaDeContasCorrentes listaDeContas = new ListaDeContasCorrentes();
+    listaDeContas.Adicionar(new ContaCorrente(874, "5679787-A"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "4456668-B"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+    var contaDoAndre = new ContaCorrente(963, "123456-X");
+    listaDeContas.Adicionar(contaDoAndre);
+    listaDeContas.ExibeLista();
+    Console.WriteLine("============");
+    listaDeContas.Remover(contaDoAndre);
+    listaDeContas.ExibeLista();
+
 }
 #endregion
