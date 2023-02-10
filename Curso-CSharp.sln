@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AulaStructsEClasses", "Aula
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AulaRegex", "AulaRegex\AulaRegex.csproj", "{5970DBF8-EE12-4E8A-97BE-686986FEFB06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bytebank_atendimento", "bytebank_atendimento\bytebank_atendimento.csproj", "{217E4E41-36FE-4C7E-80F6-07CE943FC2FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bytebank_atendimento", "bytebank_atendimento\bytebank_atendimento.csproj", "{217E4E41-36FE-4C7E-80F6-07CE943FC2FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicioBuscaNomes", "ExercicioBuscaNomes\ExercicioBuscaNomes.csproj", "{855CA5E6-6EED-48A7-8B6E-4D23F718CFBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{217E4E41-36FE-4C7E-80F6-07CE943FC2FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{217E4E41-36FE-4C7E-80F6-07CE943FC2FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{217E4E41-36FE-4C7E-80F6-07CE943FC2FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{855CA5E6-6EED-48A7-8B6E-4D23F718CFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{855CA5E6-6EED-48A7-8B6E-4D23F718CFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{855CA5E6-6EED-48A7-8B6E-4D23F718CFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{855CA5E6-6EED-48A7-8B6E-4D23F718CFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

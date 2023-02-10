@@ -244,75 +244,186 @@ Exists	    verifica se existe ou não um elemento no array.
 
 #region Aula 04 - Lista de Contas Correntes
 
-TestaArrayDeContasCorrentes();
+//TestaArrayDeContasCorrentes();
 
-void TestaArrayDeContasCorrentes()
-{
+//void TestaArrayDeContasCorrentes()
+//{
 
-    ListaDeContasCorrentes listaDeContas = new ListaDeContasCorrentes();
-    listaDeContas.Adicionar(new ContaCorrente(874, "5679787-A"));
-    listaDeContas.Adicionar(new ContaCorrente(874, "4456668-B"));
-    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
-    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
-    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
-    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
-    var contaDoAndre = new ContaCorrente(963, "123456-X");
-    listaDeContas.Adicionar(contaDoAndre);
-    //listaDeContas.ExibeLista();
-    //Console.WriteLine("============");
-    //listaDeContas.Remover(contaDoAndre);
-    //listaDeContas.ExibeLista();
+//    ListaDeContasCorrentes listaDeContas = new ListaDeContasCorrentes();
+//    listaDeContas.Adicionar(new ContaCorrente(874, "5679787-A"));
+//    listaDeContas.Adicionar(new ContaCorrente(874, "4456668-B"));
+//    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+//    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+//    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+//    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+//    var contaDoAndre = new ContaCorrente(963, "123456-X");
+//    listaDeContas.Adicionar(contaDoAndre);
+//    //listaDeContas.ExibeLista();
+//    //Console.WriteLine("============");
+//    //listaDeContas.Remover(contaDoAndre);
+//    //listaDeContas.ExibeLista();
 
-    for (int i = 0; i < listaDeContas.Tamanho; i++)
-    {
-        ContaCorrente conta = listaDeContas[i];
-        Console.WriteLine($"Indice [{i}] = {conta.Conta} / {conta.Numero_agencia}");
-    }
+//    for (int i = 0; i < listaDeContas.Tamanho; i++)
+//    {
+//        ContaCorrente conta = listaDeContas[i];
+//        Console.WriteLine($"Indice [{i}] = {conta.Conta} / {conta.Numero_agencia}");
+//    }
 
-    /*
-    Para criar um indexador, precisamos usar a palavra reservada this com um índice inteiro em uma estrutura bem parecida a uma propriedade e definir a 
-    forma de recuperar um elemento do vetor interno da classe. 
-    */
-}
+//    /*
+//    Para criar um indexador, precisamos usar a palavra reservada this com um índice inteiro em uma estrutura bem parecida a uma propriedade e definir a 
+//    forma de recuperar um elemento do vetor interno da classe. 
+//    */
+//}
 #endregion
 
-#region Aula 05 - ArrayList
+#region Aula 05 - ArrayList e List
 
-ArrayList _listaDeContas = new ArrayList();
+/*
+ArrayList _listaDeContas = new ArrayList()
+{
+    new ContaCorrente(95, "123456-X") {Saldo=100},
+    new ContaCorrente(95, "951258-X") {Saldo=200},
+    new ContaCorrente(94, "987321-W") {Saldo=60},
+};
+
+A classe de biblioteca do .NET ArrayList é uma implementação evoluída de um array, a classe 
+ArrayList faz parte do namespace System.Collections, e dentre as características desta classe temos:
+
+A possibilidade de expandir seus limites por meio da propriedade Capacity.
+A classe Array já disponibiliza operações de adição, inserção e exclusão de elementos.
+Como os arrays também tem disponível os métodos de ordenação de elementos Sort e de inversão
+da ordem por meio do Reverse.
+
+Uma característica importante da classe ArrayList é a possibilidade de se adicionar qualquer
+tipo de elemento, uma vez que ela trabalha com tipo da superclasse object da qual todos os
+tipos do C# derivam.  
+ 
+*/
+
+List<ContaCorrente> _listaDeContas = new List<ContaCorrente>()
+{
+    new ContaCorrente(95, "123456-X") {Saldo=100},
+    new ContaCorrente(95, "951258-X") {Saldo=200},
+    new ContaCorrente(94, "987321-W") {Saldo=60},
+};
 
 AtendimentoCliente();
 
 void AtendimentoCliente()
 {
-    char opcao = '0';
-    while (opcao != '6')
+    try
     {
-        Console.Clear();
-        Console.WriteLine("===============================");
-        Console.WriteLine("===       Atendimento       ===");
-        Console.WriteLine("===1 - Cadastrar Conta      ===");
-        Console.WriteLine("===2 - Listar Contas        ===");
-        Console.WriteLine("===3 - Remover Conta        ===");
-        Console.WriteLine("===4 - Ordenar Contas       ===");
-        Console.WriteLine("===5 - Pesquisar Conta      ===");
-        Console.WriteLine("===6 - Sair do Sistema      ===");
-        Console.WriteLine("===============================");
-        Console.WriteLine("\n\n");
-        Console.Write("Digite a opção desejada: ");
-        opcao = Console.ReadLine()[0];
-        switch (opcao)
+        char opcao = '0';
+        while (opcao != '6')
         {
-            case '1':
-                CadastrarConta();
-                break;
-            case '2':
-                ListarContas();
-                break;
-            default:
-                Console.WriteLine("Opcao não implementada.");
-                break;
+            Console.Clear();
+            Console.WriteLine("===============================");
+            Console.WriteLine("===       Atendimento       ===");
+            Console.WriteLine("===1 - Cadastrar Conta      ===");
+            Console.WriteLine("===2 - Listar Contas        ===");
+            Console.WriteLine("===3 - Remover Conta        ===");
+            Console.WriteLine("===4 - Ordenar Contas       ===");
+            Console.WriteLine("===5 - Pesquisar Conta      ===");
+            Console.WriteLine("===6 - Sair do Sistema      ===");
+            Console.WriteLine("===============================");
+            Console.WriteLine("\n\n");
+            Console.Write("Digite a opção desejada: ");
+            try
+            {
+                opcao = Console.ReadLine()[0];
+            }
+            catch (Exception excecao)
+            {
+                throw new ByteBankException(excecao.Message);
+            }
+
+            switch (opcao)
+            {
+                case '1':
+                    CadastrarConta();
+                    break;
+                case '2':
+                    ListarContas();
+                    break;
+                case '3':
+                    RemoverContas();
+                    break;
+                case '4':
+                    OrdenarContas();
+                    break;
+                default:
+                    Console.WriteLine("Opcao não implementada.");
+                    break;
+            }
         }
     }
+    catch (ByteBankException excecao)
+    {
+        Console.WriteLine($"{excecao.Message}");
+    }
+}
+
+void OrdenarContas()
+{
+    _listaDeContas.Sort();
+    Console.WriteLine("... Lista de Contas ordenadas ...");
+    Console.ReadKey();
+}
+
+void RemoverContas()
+{
+    Console.Clear();
+    Console.WriteLine("===============================");
+    Console.WriteLine("===      REMOVER CONTAS     ===");
+    Console.WriteLine("===============================");
+    Console.WriteLine("\n");
+    Console.Write("Informe o número da Conta: ");
+    string numeroConta = Console.ReadLine();
+    ContaCorrente conta = null;
+    foreach (var item in _listaDeContas)
+    {
+        if (item.Conta.Equals(numeroConta))
+        {
+            conta = item;
+        }
+    }
+    if (conta != null)
+    {
+        _listaDeContas.Remove(conta);
+        Console.WriteLine("... Conta removida da lista! ...");
+    }
+    else
+    {
+        Console.WriteLine(" ... Conta para remoção não encontrada ...");
+    }
+    Console.ReadKey();
+}
+
+void ListarContas()
+{
+    Console.Clear();
+    Console.WriteLine("===============================");
+    Console.WriteLine("===     LISTA DE CONTAS     ===");
+    Console.WriteLine("===============================");
+    Console.WriteLine("\n");
+    if (_listaDeContas.Count <= 0)
+    {
+        Console.WriteLine("... Não há contas cadastradas! ...");
+        Console.ReadKey();
+        return;
+    }
+    foreach (ContaCorrente item in _listaDeContas)
+    {
+        Console.WriteLine("===  Dados da Conta  ===");
+        Console.WriteLine("Número da Conta : " + item.Conta);
+        Console.WriteLine("Saldo da Conta : " + item.Saldo);
+        Console.WriteLine("Titular da Conta: " + item.Titular.Nome);
+        Console.WriteLine("CPF do Titular  : " + item.Titular.Cpf);
+        Console.WriteLine("Profissão do Titular: " + item.Titular.Profissao);
+        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        Console.ReadKey();
+    }
+
 }
 
 void CadastrarConta()
@@ -344,48 +455,177 @@ void CadastrarConta()
     conta.Titular.Profissao = Console.ReadLine();
 
     _listaDeContas.Add(conta);
+
     Console.WriteLine("... Conta cadastrada com sucesso! ...");
     Console.ReadKey();
 }
 
-void ListarContas()
-{
-    Console.Clear();
-    Console.WriteLine("===============================");
-    Console.WriteLine("===     LISTA DE CONTAS     ===");
-    Console.WriteLine("===============================");
-    Console.WriteLine("\n");
-    if (_listaDeContas.Count <= 0)
-    {
-        Console.WriteLine("... Não há contas cadastradas! ...");
-        Console.ReadKey();
-        return;
-    }
-    foreach (ContaCorrente item in _listaDeContas)
-    {
-        Console.WriteLine("===  Dados da Conta  ===");
-        Console.WriteLine("Número da Conta : " + item.Conta);
-        Console.WriteLine("Saldo da Conta : " + item.Saldo);
-        Console.WriteLine("Titular da Conta: " + item.Titular.Nome);
-        Console.WriteLine("CPF do Titular  : " + item.Titular.Cpf);
-        Console.WriteLine("Profissão do Titular: " + item.Titular.Profissao);
-        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        Console.ReadKey();
-    }
-}
+//List<ContaCorrente> _listaDeContas2 = new List<ContaCorrente>()
+//{
+//    new ContaCorrente(95, "178951-A") {Saldo=100},
+//    new ContaCorrente(95, "987542-B") {Saldo=200},
+//    new ContaCorrente(94, "997541-C") {Saldo=60},
+//};
 
-/*
-A classe de biblioteca do .NET ArrayList é uma implementação evoluída de um array, a classe 
-ArrayList faz parte do namespace System.Collections, e dentre as características desta classe temos:
+//List<ContaCorrente> _listaDeContas3 = new List<ContaCorrente>()
+//{
+//    new ContaCorrente(95, "567978-D") {Saldo=100},
+//    new ContaCorrente(95, "445668-E") {Saldo=200},
+//    new ContaCorrente(94, "778164-F") {Saldo=60},
+//};
 
-A possibilidade de expandir seus limites por meio da propriedade Capacity.
-A classe Array já disponibiliza operações de adição, inserção e exclusão de elementos.
-Como os arrays também tem disponível os métodos de ordenação de elementos Sort e de inversão
-da ordem por meio do Reverse.
+//_listaDeContas2.AddRange(_listaDeContas3);
+//_listaDeContas2.Reverse();
 
-Uma característica importante da classe ArrayList é a possibilidade de se adicionar qualquer
-tipo de elemento, uma vez que ela trabalha com tipo da superclasse object da qual todos os
-tipos do C# derivam.  
- 
-*/
+//for(int i = 0; i < _listaDeContas2.Count; i++)
+//{
+//    Console.WriteLine($"Indice[{i}] = Conta [{_listaDeContas2[i].Conta}]");
+//}
+
+//Console.WriteLine("\n\n");
+
+//var range = _listaDeContas3.GetRange(0,1); // criando uma nova lista a partir de outra
+//for (int i = 0; i < range.Count; i++)
+//{
+//    Console.WriteLine($"Indice[{i}] = Conta [{range[i].Conta}]");
+//}
+
+//Console.WriteLine("\n\n");
+
+//_listaDeContas3.Clear();
+//if (_listaDeContas3.Count > 0)
+//{
+//    for (int i = 0; i < _listaDeContas3.Count; i++)
+//    {
+//        Console.WriteLine($"Indice[{i}] = Conta [{_listaDeContas3[i].Conta}]");
+//    }
+//}
+//else
+//{
+//    Console.WriteLine("Lista vazia!");
+//}
+
+//Generica<int> teste1 = new Generica<int>();
+//teste1.MostrarMensagem(10);
+
+//Generica<string> teste2 = new Generica<string>();
+//teste2.MostrarMensagem("Olá mundo!");
+
+//public class Generica<T>
+//{
+//    public void MostrarMensagem(T t)
+//    {
+//        Console.WriteLine($"Exibindo {t}");
+//    }
+//}
+
+//public class MinhaClasseGenerica<T>
+//{
+//    public T PropriedadeGenerica { get; set; }
+//    public void ExibirDados(T t)
+//    {
+//        Console.WriteLine($"Dado Informado = {t.ToString()}");
+//        Console.WriteLine($"Tipo = {t.GetType()}");
+//    }
+
+//}
+
+//MinhaClasseGenerica<string> objGenerico = new MinhaClasseGenerica<string>();
+//objGenerico.ExibirDados("Olá mundo!");
+
+
+//MinhaClasseGenerica<int> objGenerico2 = new MinhaClasseGenerica<int>();
+//objGenerico2.ExibirDados(3);
+
+
+//Pessoa andre = new Pessoa() { Idade = 18, Nome = "André" };
+//MinhaClasseGenerica<Pessoa> objGenerico3 = new MinhaClasseGenerica<Pessoa>();
+//objGenerico3.ExibirDados(andre);
+
+
+//public class Pessoa
+//{
+//    public string Nome { get; set; }
+//    public int Idade { get; set; }
+
+//    public override string ToString()
+//    {
+//        return $"Nome = {this.Nome} com Idade = {this.Idade}";
+//    }
+//}
+#endregion
+
+#region Outras Coleções
+///*
+//Na biblioteca de classes do .NET para trabalharmos com coleções além das já mencionadas Array, ArrayList e List temos 
+//uma série de collection igualmente interessante para usarmos no desenvolvimento de nossas aplicações. Abaixo vamos listar 
+//mais algumas:
+
+//SortedList, nesta coleção trabalhamos com itens ordenados por um conjunto de chave-valor. Algumas características:
+
+//Utilizada para ordenarmos itens sem muito esforço.
+//Podemos procurar pro uma chave específica.
+//A classe SortedList também possui uma versão que aceita generics e fica no namespace System.Collections.Generic. 
+//Um exemplo: 
+//*/
+
+//SortedList<int, string> times = new SortedList<int, string>();
+//times.Add(0, "Flamengo");
+//times.Add(1, "Santos");
+//times.Add(2, "Juventus");
+
+//foreach (var item in times.Values)
+//{
+//    Console.WriteLine(item);
+//}
+
+///*
+//Stack, esta coleção implementa o conceito de pilha, onde os elementos mais novos são adicionados no topo da pilha, e 
+//devem ser retirados nesta ordem. Esta classe também possui uma versão genérica. Exemplo de utilização: 
+
+//*/
+
+//Stack<string> minhlaPilhaDeLivros = new Stack<string>();
+//minhlaPilhaDeLivros.Push("Harry Porter e a Ordem da Fênix");
+//minhlaPilhaDeLivros.Push("A Guerra do Velho.");
+//minhlaPilhaDeLivros.Push("Protocolo Bluehand");
+//minhlaPilhaDeLivros.Push("Crise nas Infinitas Terras.");
+
+//// Para encontrarmos o livro que está no topo da pilha usando o método Peek, para remove-lo usamos o método Pop:
+//Console.WriteLine(minhlaPilhaDeLivros.Peek());// Retorna o elemento do topo.
+//Console.WriteLine(minhlaPilhaDeLivros.Pop()); //Remove o elemento do topo
+
+///*
+//Queue, esta coleção por sua vez implementa o conceito de fila, onde os elementos mais novos são os primeiros a serem 
+//removidos. Para adicionar um elemento na fila usamos o método Enqueue: 
+//*/
+
+//Queue<string> filaAtendimento = new Queue<string>();
+//filaAtendimento.Enqueue("André Silva");
+//filaAtendimento.Enqueue("Lou Ferrigno");
+//filaAtendimento.Enqueue("Gal Gadot");
+
+//// Similar ao método Pop para a fila temos o método Dequeue para remover um objeto da fila. Exemplo:
+
+//filaAtendimento.Dequeue();//Remove o primeiro elemento da fila.
+
+//// HashSet, focado em alta performance esta coleção não aceita valores duplicados, para adicionar elementos
+//// temos também disponível o método Add:
+
+//HashSet<int> _numeros = new HashSet<int>();
+//_numeros.Add(0);
+//_numeros.Add(1);
+//_numeros.Add(1);
+//_numeros.Add(1);
+
+//// Para saber quantos elementos a coleção _numeros possui podemos usar a propriedade Count:
+
+//Console.WriteLine(_numeros.Count);// a saída é 2.
+
+//// Para exibirmos o conteúdo podemos percorrer a coleção usando um foreach:
+
+//foreach (var item in _numeros)
+//{
+//    Console.WriteLine(item);
+//}
 #endregion
