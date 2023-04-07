@@ -7,6 +7,7 @@
         public string Nome_Agencia{ get; set; }
 
         private int _numero_agencia;
+        private int numero_conta {  get; set; }
         public int Numero_agencia
         {
             get
@@ -132,12 +133,14 @@
 
         }
 
-        public ContaCorrente(int numero_agencia)
+        public ContaCorrente(int numero_agencia, int numero_conta)
         {
             Numero_agencia = numero_agencia;
             Conta = Guid.NewGuid().ToString().Substring(0, 8);
             Titular = new Cliente();
             TotalDeContasCriadas += 1;
+            this.numero_conta = numero_conta;
+
         }
 
 
