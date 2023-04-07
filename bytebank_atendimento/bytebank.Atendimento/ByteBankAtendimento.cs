@@ -1,10 +1,12 @@
 ﻿using bytebank.Modelos.Conta;
 using bytebank_ATENDIMENTO.bytebank.Exceptions;
+using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace bytebank_ATENDIMENTO.bytebank.Atendimento
 {
-    #nullable disable
-    internal  class ByteBankAtendimento
+#nullable disable
+    internal class ByteBankAtendimento
     {
 
         private List<ContaCorrente> _listaDeContas = new List<ContaCorrente>(){
@@ -12,25 +14,27 @@ namespace bytebank_ATENDIMENTO.bytebank.Atendimento
           new ContaCorrente(95, "951258-X"){Saldo=200,Titular = new Cliente{Cpf="22222",Nome ="Pedro"}},
           new ContaCorrente(94, "987321-W"){Saldo=60,Titular = new Cliente{Cpf="33333",Nome ="Marisa"}}
         };
-           
+
 
         public void AtendimentoCliente()
         {
             try
             {
                 char opcao = '0';
-                while (opcao != '6')
+                while (opcao != '8')
                 {
                     Console.Clear();
                     Console.WriteLine("===============================");
                     Console.WriteLine("===       Atendimento       ===");
-                    Console.WriteLine("===1 - Cadastrar Conta      ===");
-                    Console.WriteLine("===2 - Listar Contas        ===");
-                    Console.WriteLine("===3 - Remover Conta        ===");
-                    Console.WriteLine("===4 - Ordenar Contas       ===");
-                    Console.WriteLine("===5 - Pesquisar Conta      ===");
-                    Console.WriteLine("===6 - Sair do Sistema      ===");
-                    Console.WriteLine("===============================");
+                    Console.WriteLine("=== 1 - Cadastrar Conta      ===");
+                    Console.WriteLine("=== 2 - Listar Contas        ===");
+                    Console.WriteLine("=== 3 - Remover Conta        ===");
+                    Console.WriteLine("=== 4 - Ordenar Contas       ===");
+                    Console.WriteLine("=== 5 - Pesquisar Conta      ===");
+                    Console.WriteLine("= 6 - Exportar Contas em JSON  =");
+                    Console.WriteLine("= 7 - Exportar Contas em XML   =");
+                    Console.WriteLine("=== 8 - Sair do Sistema      ===");
+                    Console.WriteLine("================================");
                     Console.WriteLine("\n\n");
                     Console.Write("Digite a opção desejada: ");
                     try
@@ -60,6 +64,12 @@ namespace bytebank_ATENDIMENTO.bytebank.Atendimento
                             PesquisarContas();
                             break;
                         case '6':
+                            ExportarContas();
+                            break;
+                        case '7':
+                            ExportarContasEmXML();
+                            break;
+                        case '8':
                             EncerrarAplicacao();
                             break;
                         default:
@@ -71,6 +81,104 @@ namespace bytebank_ATENDIMENTO.bytebank.Atendimento
             catch (ByteBankException excecao)
             {
                 Console.WriteLine($"{excecao.Message}");
+            }
+        }
+
+        private void ExportarContas()
+        {
+
+            /*
+             
+            Há uma nova demanda para o projeto bytebank_ATENDIMENTO. Precisamos gerar um arquivo no formato JSON com 
+            todas as contas cadastradas no nosso sistema, para ser enviado ao Banco Central. Nós poderíamos criar 
+            uma biblioteca responsável por esse processo, mas será que já não existe uma que faça isso? Vamos pesquisar.
+
+            O NuGet é um repositório de pacotes de bibliotecas da plataforma .NET em que podemos pesquisar se existe uma 
+            biblioteca com a função que precisamos. No menu superior do Visual Studio, vamos acessar 
+            "Ferramentas > Gerenciador de Pacotes do NuGet > Gerenciar Pacotes do NuGet para a Solução". 
+            Também podemos trabalhar na linha de comando, usando CLI.
+
+            Na aba "Procurar", selecionaremos o pacote Newtonsoft.Json, por James Newton-King (provavelmente a 
+            primeira opção da lista). Se necessário, você pode utilizar a barra de pesquisa no topo da tela, 
+            pressionando "Ctrl + L". 
+             
+            */
+
+            Console.Clear();
+            Console.WriteLine("===============================");
+            Console.WriteLine("===    EXPORTAR CONTAS     ===");
+            Console.WriteLine("===============================");
+            Console.WriteLine("\n");
+
+            if (_listaDeContas.Count <= 0)
+            {
+                Console.WriteLine("... Não existe dados para exportação");
+                Console.ReadKey();
+            }
+            else
+            {
+                string json = JsonConvert.SerializeObject(_listaDeContas, Formatting.Indented);
+
+                try
+                {
+                    FileStream fs = new FileStream(@"C:\Users\Danielle Bassetto\source\repos\bytebank\bytebank_atendimento\bin\Debug\net6.0\contas.json", FileMode.Create);
+                    using (StreamWriter streamWriter = new StreamWriter(fs))
+                    {
+                        streamWriter.WriteLine(json);
+                    }
+                    Console.WriteLine("Arquivo salvo");
+
+                }
+                catch(Exception excecao)
+                {
+                    throw new ByteBankException(excecao.Message);
+                    Console.ReadKey();
+                }
+            }
+
+            /*
+             
+            Esse método é responsável pela serialização, por transformar um objeto em outro formato para que ele seja 
+            persistido em um arquivo ou em uma base de dados ou seja transferido para outro sistema. Vale lembrar que 
+            também existe o caminho contrário: a desserialização, em que retornamos um formato específico como um objeto. 
+             
+            */
+        }
+
+        private void ExportarContasEmXML()
+        {
+            Console.Clear();
+            Console.WriteLine("===============================");
+            Console.WriteLine("===     EXPORTAR CONTAS XML ===");
+            Console.WriteLine("===============================");
+            Console.WriteLine("\n");
+
+            if (_listaDeContas.Count <= 0)
+            {
+                Console.WriteLine("... Não existe dados para exportação...");
+                Console.ReadKey();
+            }
+            else
+            {
+                //Serializar para XML
+                var contasXML = new XmlSerializer(typeof(List<ContaCorrente>));
+
+                try
+                {
+                    FileStream fs = new FileStream(@"C:\Users\Danielle Bassetto\source\repos\bytebank\bytebank_atendimento\bin\Debug\net6.0\contas.xml", FileMode.Create);
+                    using (StreamWriter streamwriter = new StreamWriter(fs))
+                    {
+                        contasXML.Serialize(streamwriter, _listaDeContas);
+                    }
+                    Console.WriteLine(@"Arquivo salvo");
+                    Console.ReadKey();
+                }
+                catch (Exception excecao)
+                {
+                    throw new ByteBankException(excecao.Message);
+                    Console.ReadKey();
+                }
+
             }
         }
 
