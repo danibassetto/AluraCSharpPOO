@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AulaStructsEClasses", "Aula
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AulaRegex", "AulaRegex\AulaRegex.csproj", "{5970DBF8-EE12-4E8A-97BE-686986FEFB06}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bytebank_atendimento", "bytebank_atendimento\bytebank_atendimento.csproj", "{217E4E41-36FE-4C7E-80F6-07CE943FC2FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bytebank_Atendimento", "bytebank_atendimento\bytebank_Atendimento.csproj", "{217E4E41-36FE-4C7E-80F6-07CE943FC2FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExercicioBuscaNomes", "ExercicioBuscaNomes\ExercicioBuscaNomes.csproj", "{855CA5E6-6EED-48A7-8B6E-4D23F718CFBF}"
 EndProject
@@ -23,9 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManipulacaoArquivos", "Mani
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bytebank_Modelos", "bytebank_biblioteca\bytebank_Modelos.csproj", "{5CD16218-C6CF-4658-AFFD-41AC5BECC758}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bytebank_GeradorChavePix", "bytebank_GeradorChavePix\bytebank_GeradorChavePix.csproj", "{A995D9C9-532A-43B6-8A4F-3881EA3F7CCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bytebank_GeradorChavePix_Db", "bytebank_GeradorChavePix\bytebank_GeradorChavePix_Db.csproj", "{A995D9C9-532A-43B6-8A4F-3881EA3F7CCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportarDados", "ExportarDados\ExportarDados.csproj", "{0D1A39D4-88AB-410E-926C-3F86A87B6DDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExportarDados", "ExportarDados\ExportarDados.csproj", "{0D1A39D4-88AB-410E-926C-3F86A87B6DDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumidorPacote", "ConsumidorPacote\ConsumidorPacote.csproj", "{115A1240-5BA3-472F-AB56-DBB019ED5554}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{0D1A39D4-88AB-410E-926C-3F86A87B6DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D1A39D4-88AB-410E-926C-3F86A87B6DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D1A39D4-88AB-410E-926C-3F86A87B6DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{115A1240-5BA3-472F-AB56-DBB019ED5554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115A1240-5BA3-472F-AB56-DBB019ED5554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115A1240-5BA3-472F-AB56-DBB019ED5554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{115A1240-5BA3-472F-AB56-DBB019ED5554}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
